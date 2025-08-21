@@ -2,6 +2,8 @@ https://developer.android.com/develop/ui/compose/documentation
 
 UI archetecture
 ## App layout
+*custom Modifier and custom Layout*
+
 ### basics
 parents measure before their children, but are sized and placed after their children.
 measurement , being sized are different 
@@ -101,21 +103,35 @@ padding change the canvas size
 TODO
 
 ### List of modifiers
+挨个试
 
 ### Pager
 
+
 ### Flow layouts
 
+
 ### Custom layouts
+Laying out each node in the UI tree is a three step process. Each node must:
+- Measure any children
+- Decide its own size
+- Place its children
+
+#### methods:
+- Use the layout modifier
+- Create custom layouts
+
 
 ### Adaptive layouts
 TODO
 
 ### Alignment lines
+TODO
 
 ### Instinsic measurements
 
 ### ConstraintLayout
+TODO
 
 
 ## Components

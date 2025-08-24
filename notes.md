@@ -143,12 +143,98 @@ TODO Navigation with Compose
 
 
 ## Theming
+
+### Material Design 3 in Compose
+- Color
+    - Primary, Secondary, Tertiary, Neutral
+    - isLight
+    - Dynamic color
+        make use of device wallpaper colors
+- Typography
+    display, headline, title, body, label(Large, Medium, Small)
+- Shape
+    extraSmall, small, medium, large, extraLarge
+
+### Custom design systems in Compose
+
+### Anatomy of a theme in Compose
+
+
+
 ## Text and typography
+
+### Text
+- style text
+- style paragraph
+- maxLine and overflow
+
+### TextField
+- Value-based -> State-based
+
+### user interaction
+- selectable
+- clickable
+
+### fonts, emoji, autofill...
+
 ## Images and graphics
+
+
+
+
+
+
 ## Animation
-## Accessibility
+
+
+
+
 ## Touch and input
+
+
+
+
+## Accessibility
+
+
 ## Performance
+
+Layout Inspector
+Composition tracing
+
+#### Best practices
+- Use remember
+- Use lazy layout keys
+- Use derivedStateOf
+- Defer reads as long as possible
+- Avoid backwards writes
+
+
 ## Style guidelines
+- Default arguments
+- Higher-order functions and lambda expressions
+- Trailing lambdas
+- Scopes and receivers
+- Delegated properties
+    by 
+- Destructing data classes
+- Singleton objects
+    object class
+- Type-safe builders and DSLs
+- Kotlin coroutines
+
+
 ## UI testing
+
 ## Tools
+
+
+## System capabilities
+- Windown insets
+- Cutouts
+- Picture-in-picture
+- Predictive back
+
+## Create widgets
+
+

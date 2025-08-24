@@ -179,17 +179,108 @@ TODO Navigation with Compose
 
 ## Images and graphics
 
+### Image
+
+Painter
+- Bitmap
+    BitmapPainter
+- Vector
+    VectorPainter
+
+painterResource
+
+#### customize an image
+- Content scale
+- Clip
+- border
+- aspect ratio
+- Color filter
+    - tint
+    - color matrix
+- blur
+
+### customize painter
+
+- Painter
+    - DrawModifier
+ The above custom Painter can also be implemented using a DrawModifier. If you need to influence measurement or layout, then you should use a Painter. If you are only expecting to render in the bounds you are given, then you should use a DrawModifier instead.
+    - onDraw() { drawImage() }
 
 
+#### Optimizing performance for images
+- Only load the size of the bitmap you need
+- Use vectors over bitmaps where possible
+- Supply alternative resources for different screen sizes
+- When using ImageBitmap, call prepareToDraw before drawing
+- Prefer passing a Int DrawableRes or URL as parameters into your composable instead of Painter
+- Don’t store a bitmap in memory longer than you need it
+- Don’t package large images with your AAB/APK file
 
+
+### Graphics
+#### Overview
+- modifier
+    Modifier.drawWithContent, Modifier.drawBehind, and Modifier.drawWithCache
+- DrawScope
+    drawRect
+- Coordinate system
+- Basic transformation
+    - scale
+    - translate
+    - rotate
+    - inset
+    - Multi transformation
+- Common drawing operations
+    - draw text
+        measure text
+    - draw image
+    - Draw basic shapes
+    - Draw path
+- Accessing Canvas object
+
+
+#### Brush: gradients and shaders
+
+
+#### Shapes in Compose
 
 
 ## Animation
 
+### Quick guide to Animations in Compose
+
+### Animation modifiers and composables
+
+### Value-based animations
+
+### Animated vector images in Compose
+
+### Advanced animation example: Gestures
+
+### Customize animations - AnimationSpec
+
+### Shared element transitions in Compose
 
 
 
 ## Touch and input
+
+### Pointer
+
+### Keyboard
+
+
+### Focus
+
+### User interactions
+
+### Stylus input
+
+
+### copy and paste
+
+### Input compatibility on large screens
+
 
 
 

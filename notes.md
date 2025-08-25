@@ -357,9 +357,13 @@ graphics-shapes library: morphing between these polygon shapes.
 ##### Event consumption
 ##### Event propagation
 
-### Tap and press
+#### Tap and press
 
-### Keyboard
+#### Scoll
+#### Drag, swipe, and fling
+#### Multi-touch gesture
+
+### Keyboard input
 
 
 ### Focus

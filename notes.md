@@ -293,14 +293,47 @@ graphics-shapes library: morphing between these polygon shapes.
 ### Quick guide to Animations in Compose
 
 ### Animation modifiers and composables
+- Built-in animated composables
+    - Animate appearance and disappearance with AnimatedVisibility
+        visible
+        enter
+        exit
+    - Animate based on target state with AnimatedContent
+        对整个 content 做动画
+    - Animate between two layouts with Crossfade
+- Built-in animation modifiers
+    - Animate composable size changes with animateContentSize
+- List item animations
+
 
 ### Value-based animations
+- Animate a single value with animate*AsState
+
+- Animate multiple properties simultaneously with a transition
+    - updateTransition, transition.animateXX
+- Create an infinitely repeating animation with rememberInfiniteTransition
+- Low-level animation APIs
+    - Animatable: Coroutine-based single value animation
+    - Animation: Manually controlled animation
+
 
 ### Animated vector images in Compose
+- AnimatedVectorDrawable
 
 ### Advanced animation example: Gestures
 
 ### Customize animations - AnimationSpec
+- Customize animations with the AnimationSpec parameter
+    - Create physics-based animation with spring
+    - Animate between start and end values with easing curve with tween
+    - Animate to specific values at certain timings with keyframes
+    - Animate between keyframes smoothly with keyframesWithSpline
+    - Repeat an animation with repeatable
+    - Repeat an animation infinitely with infiniteRepeatable
+    - Immediately snap to end value with snap
+- Set a custom easing function  -  Easing
+- Animate custom data types by converting to and from AnimationVector
+
 
 ### Shared element transitions in Compose
 
@@ -308,7 +341,23 @@ graphics-shapes library: morphing between these polygon shapes.
 
 ## Touch and input
 
-### Pointer
+### Pointer input
+#### Understand gestures
+##### Different levels of abstraction
+- Component support
+    onClick = {}, Modifier.clickable {}
+- Add specific gestures to arbitrary composables with modifiers
+    - taps and presses
+    - Modifier.horizontalScroll,
+    - draggable, swipable
+    - multi-touch gestures
+- Add custom gesture to arbitrary composables with pointerInput modifier
+    - Modifier.pointerInput() {}
+##### Event dispatching and hit-testing
+##### Event consumption
+##### Event propagation
+
+### Tap and press
 
 ### Keyboard
 

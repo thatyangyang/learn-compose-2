@@ -219,11 +219,15 @@ painterResource
 
 ### Graphics
 #### Overview
-- modifier
+- modifier, DrawScope
     Modifier.drawWithContent, Modifier.drawBehind, and Modifier.drawWithCache
-- DrawScope
-    drawRect
+    Canvas = Spacer(modifier.drawBehind(onDraw))
+    drawWithCache<CacheDrawScope> 是 Modifier 的方法
+    CacheDrawScope 中还有 onDrawContent, onDrawBehind()
+
 - Coordinate system
+
+below is DrawScopes
 - Basic transformation
     - scale
     - translate
@@ -236,13 +240,52 @@ painterResource
     - draw image
     - Draw basic shapes
     - Draw path
-- Accessing Canvas object
+- Accessing Canvas object - to native canvas
+    DrawScope.drawIntoCanvas()
 
 
-#### Brush: gradients and shaders
+#### Graphics modifiers
+- Drawing modifiers - 绘制顺序
+    - Modifier.drawWithContent: Choose drawing order
+        call drawContent() in it
+        把 drawConent() 放在自定义绘制的内容上或下
+    - Modifier.drawBehind: Drawing behind a composable
+        Canvas:  a convenient wrapper around Modifier.drawBehind
+    - Modifier.drawWithCache: Drawing and caching draw objects
+        or using remember, outside of the modifier
+
+- Graphics modifiers
+    - Modifier.graphicsLayer
+        - scale, translate, rotation, Origin, clip and shape, alpha
+    - Compositing strategy
+        - Auto (default), Offscreen, ModulateAlpha
+
+- Write contents of a composable to a bitmap
+    - create a GraphicsLayer using rememberGraphicsLayer()
+    - using drawWithContent() and graphicsLayer.record{}
+- Custom drawing modifier
+    - DrawModifier 
+        重写 ContentDrawScope.draw()
 
 
-#### Shapes in Compose
+#### Brush: gradients and shaders 着色器 - 渐变和image
+it determines the color(s) that are drawn in the drawing area (i.e. a circle, square, path)
+- Gradient brushes
+- Use an image as a brush
+- Advanced example: Custom brush
+
+
+#### Shapes in Compose 多边形以及多边形见的转换动画
+graphics-shapes library: morphing between these polygon shapes. 
+- Create polygons
+    RoundedPolygon
+- Morph shapes
+    A Morph object is a new shape representing an animation between two polygonal shapes.
+- Use polygon as clip
+- Morph button on click
+- Animate shape morphing infinitely
+- Custom polygons
+
 
 
 ## Animation

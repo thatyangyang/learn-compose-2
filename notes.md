@@ -227,6 +227,10 @@ painterResource
 
 - Coordinate system
 
+
+Modifier.drawWithContent, Modifier.drawBehind 包含 DrawScope, DrawScope 有下列方法
+画基本图形和基本的形变
+
 below is DrawScopes
 - Basic transformation
     - scale
@@ -243,33 +247,53 @@ below is DrawScopes
 - Accessing Canvas object - to native canvas
     DrawScope.drawIntoCanvas()
 
+> interface DrawScope : Density
+
+> DrawScope 是用于绘制图形的 API, GraphicsLayerScope 是与图层变换和效果相关的 API. DrawScope 可以对不同的内容进行不同的变换, GraphicsLayerScope 的变换是应用于整体内容.
+
 
 #### Graphics modifiers
-- Drawing modifiers - 绘制顺序
-    - Modifier.drawWithContent: Choose drawing order
+- Drawing modifiers
+    - Modifier.drawWithContent: Choose drawing order - 绘制顺序
         call drawContent() in it
         把 drawConent() 放在自定义绘制的内容上或下
     - Modifier.drawBehind: Drawing behind a composable
         Canvas:  a convenient wrapper around Modifier.drawBehind
     - Modifier.drawWithCache: Drawing and caching draw objects
+        如果要 draw 中创建对象, 使用这个方法; 对象被cached, 只要大小不变, 对象不会重新创建
+            drawWithCache 的接收者 CacheDrawScope 并没有绘制方法/变形方法;
+            需要调用 onDrawBehind, onDrawContent 并在里面进行绘制
         or using remember, outside of the modifier
+        或者自己使用 remember
 
+TODO
 - Graphics modifiers
     - Modifier.graphicsLayer
-        - scale, translate, rotation, Origin, clip and shape, alpha
-    - Compositing strategy
+        通过属性来实现
+        - scale, translate, rotation, Origin, 
+        - clip and shape, alpha
+            fun Modifier.clip(shape: Shape) = graphicsLayer(shape = shape, clip = true)
+            clip() 与 clip = ture, shap=   可以拼接
+
+    - Compositing strategy   // TODO
         - Auto (default), Offscreen, ModulateAlpha
+
+> interface GraphicsLayerScope : Density
+
 
 - Write contents of a composable to a bitmap
     - create a GraphicsLayer using rememberGraphicsLayer()
     - using drawWithContent() and graphicsLayer.record{}
+
 - Custom drawing modifier
     - DrawModifier 
         重写 ContentDrawScope.draw()
 
 
-#### Brush: gradients and shaders 着色器 - 渐变和image
+#### Brush: gradients and shaders 渐变和着色器 - 渐变和image
 it determines the color(s) that are drawn in the drawing area (i.e. a circle, square, path)
+such as LinearGradient, RadialGradient or a plain SolidColor brush;
+Brushes can be used with Modifier.background(), TextStyle, or DrawScope draw calls
 - Gradient brushes
 - Use an image as a brush
 - Advanced example: Custom brush
@@ -289,6 +313,7 @@ graphics-shapes library: morphing between these polygon shapes.
 
 
 ## Animation
+参考 rengwuxian 的结构
 
 ### Quick guide to Animations in Compose
 

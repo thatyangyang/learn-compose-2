@@ -295,8 +295,14 @@ it determines the color(s) that are drawn in the drawing area (i.e. a circle, sq
 such as LinearGradient, RadialGradient or a plain SolidColor brush;
 Brushes can be used with Modifier.background(), TextStyle, or DrawScope draw calls
 - Gradient brushes
+    - horizontalGradient(), verticalGradient(), linearGradient(), sweepGradient(), radialGradient()
+    - colorStops, Change distribution of colors
+    - TileMode, Repeat a pattern
+    - Change brush Size, custom Brush
 - Use an image as a brush
+    - background, TextStyle, drawXX(shaderBrush)
 - Advanced example: Custom brush
+    - AGSL RuntimeShader brush  // TODO
 
 
 #### Shapes in Compose 多边形以及多边形见的转换动画

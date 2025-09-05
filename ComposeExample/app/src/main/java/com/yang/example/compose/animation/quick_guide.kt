@@ -66,8 +66,7 @@ fun AnimatedVisibilityCookbook_ModifierAlpha() {
         val animatedAlpha by animateFloatAsState(
             targetValue = if (visible) 1f else 0f,
             label = "alpha",
-
-            )
+        )
 
         Box(
             modifier = Modifier

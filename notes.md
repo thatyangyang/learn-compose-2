@@ -323,9 +323,29 @@ graphics-shapes library: morphing between these polygon shapes.
 
 ### Quick guide to Animations in Compose
 
+
+
+- Start an animation on launch of a composable
+    LaunchedEffect
+- 连续动画
+    LaunchedEffect 内部多个动画 (suspend) 是阻塞的
+- 并发动画
+    LaunchedEffect 内部为每个多个动画 (suspend) 创建一个协程, 即可实现并发
+
+- Optimize animation performance
+    deferring reads, 重组过程中靠后的阶段
+
+- Change animation timing - animationSpec
+    - infiniteRepeatable, repeatable(RepeatMode)
+    - relation between value and time
+        - inbuild: tween, spring
+        - keyframes
+        - snap
+    
+
 ### Animation modifiers and composables
 - Built-in animated composables
-    - Animate appearance and disappearance with AnimatedVisibility
+    - Animate appearance and disappearance with AnimatedVisibility (Transition)
         visible
         enter
         exit
@@ -337,36 +357,77 @@ graphics-shapes library: morphing between these polygon shapes.
 - List item animations
 
 
+
 ### Value-based animations
 - Animate a single value with animate*AsState
+    animateValueAsState  ->  State() AnimationSpec
+    - Out of the box, Compose provides animate*AsState functions for Float, Color, Dp, Size, Offset, Rect, Int, IntOffset, and IntSize. 
+    - support for other data types by providing a TwoWayConverter to animateValueAsState that takes a generic type.
+    - customize AnimationSpec (value-time)
 
 - Animate multiple properties simultaneously with a transition
+    Transition 就是同时动画多个属性
+    transitionSpec : transitionSpec: @Composable Transition.Segment<S>.() -> FiniteAnimationSpec<Dp>
     - updateTransition, transition.animateXX
+    - Use transition with AnimatedVisibility and AnimatedContent
+        - AnimatedVisibility 内容的显示和隐藏, 可以指定入场出厂动画
+        - AnimatedContent 不同内容的转换,
+        - 通过 transition 调用的 AnimatedVisibility 和 AnimatedContent, 把动画提升到外部, 可以作用其它组件共享动画
+    - Encapsulate a transition and make it reusable
+
 - Create an infinitely repeating animation with rememberInfiniteTransition
+    - rememberInfiniteTransition， infiniteRepeatable, RepeatMode
+
 - Low-level animation APIs
     - Animatable: Coroutine-based single value animation
+        TwoWayConverter, animate*AsState 的基础
+        - animateTo()
+        - snapTo()
+        - decayTo()
     - Animation: Manually controlled animation
+        Animation should only be used to manually control the time of the animation
+        - TargetBasedAnimation
+        - DecayAnimation
+            Decay animations are often used after a fling gesture to slow elements down to a stop
+
 
 
 ### Animated vector images in Compose
 - AnimatedVectorDrawable
 
+android/views
+https://developer.android.com/develop/ui/views/animations
+
+
 ### Advanced animation example: Gestures
+// TODO after learning gesture
 
 ### Customize animations - AnimationSpec
 - Customize animations with the AnimationSpec parameter
     - Create physics-based animation with spring
+
     - Animate between start and end values with easing curve with tween
+
     - Animate to specific values at certain timings with keyframes
+
     - Animate between keyframes smoothly with keyframesWithSpline
+
     - Repeat an animation with repeatable
+
     - Repeat an animation infinitely with infiniteRepeatable
+
     - Immediately snap to end value with snap
+
 - Set a custom easing function  -  Easing
-- Animate custom data types by converting to and from AnimationVector
+
+- Animate custom data types by converting to and from AnimationVector ( ~ PropertyValueHolder)
 
 
 ### Shared element transitions in Compose
+
+
+
+
 
 
 

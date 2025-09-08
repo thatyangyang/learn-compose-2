@@ -319,11 +319,8 @@ graphics-shapes library: morphing between these polygon shapes.
 
 
 ## Animation
-参考 rengwuxian 的结构
 
 ### Quick guide to Animations in Compose
-
-
 
 - Start an animation on launch of a composable
     LaunchedEffect
@@ -336,24 +333,26 @@ graphics-shapes library: morphing between these polygon shapes.
     deferring reads, 重组过程中靠后的阶段
 
 - Change animation timing - animationSpec
+    - tween, spring
+    - keyframes
+    - snap
     - infiniteRepeatable, repeatable(RepeatMode)
-    - relation between value and time
-        - inbuild: tween, spring
-        - keyframes
-        - snap
-    
+
 
 ### Animation modifiers and composables
 - Built-in animated composables
     - Animate appearance and disappearance with AnimatedVisibility (Transition)
-        visible
-        enter
-        exit
+        - 一个(组)元素的显示隐藏
+        visible, enter, exit
     - Animate based on target state with AnimatedContent
-        对整个 content 做动画
+        - 两(多)个元素的转换, 或者子组件内容有变化
+        - Animate child enter and exit transitions
     - Animate between two layouts with Crossfade
+        - 淡入淡出；交叉渐变
+
 - Built-in animation modifiers
     - Animate composable size changes with animateContentSize
+
 - List item animations
 
 
@@ -404,19 +403,10 @@ https://developer.android.com/develop/ui/views/animations
 
 ### Customize animations - AnimationSpec
 - Customize animations with the AnimationSpec parameter
-    - Create physics-based animation with spring
-
-    - Animate between start and end values with easing curve with tween
-
-    - Animate to specific values at certain timings with keyframes
-
-    - Animate between keyframes smoothly with keyframesWithSpline
-
-    - Repeat an animation with repeatable
-
-    - Repeat an animation infinitely with infiniteRepeatable
-
-    - Immediately snap to end value with snap
+    - spring, tween,
+    - keyframe, keyframeWithSpine,
+    - RepeatableSpec, InfiniteRepeatableSpec
+    - SnapSpec
 
 - Set a custom easing function  -  Easing
 

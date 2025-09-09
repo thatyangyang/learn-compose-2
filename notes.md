@@ -425,6 +425,9 @@ https://developer.android.com/develop/ui/views/animations
 
 ### Pointer input
 #### Understand gestures
+
+##### Definitions
+    pointer, pointerEvent, gestures
 ##### Different levels of abstraction
 - Component support
     onClick = {}, Modifier.clickable {}
@@ -436,26 +439,41 @@ https://developer.android.com/develop/ui/views/animations
 - Add custom gesture to arbitrary composables with pointerInput modifier
     - Modifier.pointerInput() {}
 ##### Event dispatching and hit-testing
+    hit-testing, sharePointerInputWithSiblings, event propagation logic(same chain of composables).
+
 ##### Event consumption
+    - 链条上的所有组件都可以手动事件，即使已被其它组件消费
+    - pointer changes are passed to each composable that it hits
+
 ##### Event propagation
+- In the Initial pass
+- In the Main pass
+- In the Final pass
+
 
 #### Tap and press
+
 
 #### Scoll
 #### Drag, swipe, and fling
 #### Multi-touch gesture
+
+
 
 ### Keyboard input
 
 
 ### Focus
 
+
 ### User interactions
+
 
 ### Stylus input
 
 
 ### copy and paste
+
 
 ### Input compatibility on large screens
 

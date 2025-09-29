@@ -452,25 +452,27 @@ https://developer.android.com/develop/ui/views/animations
 
 
 #### Tap and press
-
+- Modifier.clcikable {}
+- Modifier.combinedClickable {}
+- Modifier.pointerInput { detectTapGestures {  } }
 
 #### Scoll
+- rememberScrollState
+- rememberScrollableState
+- Nested scrolling
+    - Modifier.nestedScroll(nestedScrollConnection)
+- Nested scrolling interop
+
 #### Drag, swipe, and fling
+
+
 #### Multi-touch gesture
 
 
-
 ### Keyboard input
-
-
 ### Focus
-
-
 ### User interactions
-
-
 ### Stylus input
-
 
 ### copy and paste
 
